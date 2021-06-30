@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         {{- partial "header.html" . -}}
         <div id="content" class="container-lg">
         {{- block "main" . }}{{- end }}

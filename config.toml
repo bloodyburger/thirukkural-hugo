@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "Thirukkural"
+title = "Thirukkural - Tamil and English"
 theme = "tkrl"
 relativeURLs = true
 [menu]
@@ -18,3 +18,8 @@ relativeURLs = true
     pre = "<i class='fas fa-user'></i>"
     url = "/about/"
     weight = 101
+
+[params.credits]
+	url1 = "https://github.com/tk120404/thirukkural"
+	url2 = "https://github.com/SudarAbisheck/thirukkural-dataset"
+	url3 = "https://github.com/jjasim/Thirukkural-English-Translation-Dataset"
