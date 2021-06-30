@@ -2,6 +2,7 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Thirukkural"
 theme = "tkrl"
+relativeURLs = true
 [menu]
   [[menu.navbar]]
     identifier = "about"
