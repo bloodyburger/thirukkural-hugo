@@ -1,0 +1,35 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">{{ $.Site.Title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+		{{ range .Site.Menus.navbar }}
+                {{ if .HasChildren }}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-{{ .Identifier }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ .Pre }}
+                            <span>{{ .Name }}</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-{{ .Identifier  }}">
+                            {{ range .Children }}
+                                <a class="dropdown-item" href="{{ .URL }}">
+                                    {{ .Pre }}
+                                    <span>{{ .Name }}</span>
+                                </a>
+                            {{ end }}
+                        </div>
+                    </li>
+                {{ else }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ .URL }}">
+                            {{ .Pre }}
+                            <span>{{ .Name }}</span>
+                        </a>
+                    </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Thirukkural"
+theme = "tkrl"
+[menu]
+  [[menu.navbar]]
+    identifier = "about"
+    name = "About"
+    pre = "<i class='fas fa-user'></i>"
+    url = "/about/"
+    weight = 101
+
+	
+	[[menu.navbar_icons]]
+    identifier = "about1"
+    name = "About1"
+    pre = "<i class='fas fa-user'></i>"
+    url = "/about/"
+    weight = 101

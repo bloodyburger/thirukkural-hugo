@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="container " style="margin-top:10px;">
+<div class="row g-5">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+{{ $chapter := $.Site.Data.detail }}
+	{{ range $chapter }}
+	{{ $section := .section }}
+	{{/*$section.tamil*/}}
+		{{ range $section.detail }}
+			<a type="button" class="btn btn-outline-primary" href="/{{.transliteration | lower }}/">{{.name}} - {{.transliteration}} - {{.translation}}</a>
+		{{ end }}	
+{{ end }}
+</div>
+</div>
+</div>
+</div>
+{{ end }}

@@ -1,0 +1,73 @@
+{{ $chapter := $.Site.Data.detail }}
+	{{ range $chapter }}
+	{{ $section := .section }}
+	{{/*$section.tamil*/}}
+		{{ range $section.detail }}
+			{{ if eq .transliteration "Kaamaththuppaal" }}
+			{{ $.Scratch.Set "counter" 0 }}
+			
+			{{/*$.Scratch.Get "counter"*/}}
+			<div class="row clearfix">
+			<div class="col-3"></div>
+			<div class="col-6">
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">{{.name}}</a></li>
+				<li class="breadcrumb-item " aria-current="page">{{.transliteration}}</li>
+				<li class="breadcrumb-item " aria-current="page">{{.translation}}</li>
+			  </ol>
+			</nav>
+			</div>
+			</div>
+			
+				{{ $chapterGroup := .chapterGroup }}
+				<div class="row mx-auto clearfix shadow p-3 mb-5 bg-body rounded">
+				<div class="col-lg-12">
+				<div class="accordion accordion-flush" id="accordionFlushExample">
+				{{ range $chapterGroup.detail }}
+					{{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-heading{{$.Scratch.Get "counter"}}">
+							  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$.Scratch.Get "counter"}}" aria-expanded="false" aria-controls="flush-collapse{{$.Scratch.Get "counter"}}">
+								{{ .name }} - {{ .transliteration }} - {{ .translation }}
+							  </button>
+							</h2>
+							<div id="flush-collapse{{$.Scratch.Get "counter"}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$.Scratch.Get "counter"}}" data-bs-parent="#accordionFlushExample">
+							<div class="accordion-body">
+								{{ $chapters := .chapters}}
+								{{ range $chapters.detail}}
+									{{ $start := .start}}
+									{{ $end := .end }}
+									<div class="card">
+										<div class="card-header">
+											<span class="badge bg-primary">{{ .name }}</span>
+											<span class="badge bg-secondary">{{ .transliteration }}</span>
+											<span class="badge bg-success">{{ .translation }}</span>
+										</div>
+										<div class="card-body">
+											{{ $kural := $.Site.Data.thirukkural.kural }}
+											{{ range $kural }}
+												{{ $num := .Number }}
+												{{ if and (ge $num $start) (le $num $end) }}
+													
+													<div class="alert alert-primary" role="alert">
+													  <h5 class="alert-heading">{{ .Line1 }} {{ .Line2 }}</h5><hr>
+													  {{ .mv }}
+													  {{ .sp }}
+													  {{ .mk }}
+													  <hr>
+													  <p class="mb-0">{{ .explanation }}</p>
+													</div>
+												{{ end }}	
+											{{ end }}
+										</div>
+									</div>
+								{{ end }}
+							</div>
+						</div>					
+				{{ end }}
+				</div>
+				</div></div>
+			{{ end }}
+		{{ end }}	
+{{ end }}

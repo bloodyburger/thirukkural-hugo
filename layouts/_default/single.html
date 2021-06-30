@@ -1,0 +1,8 @@
+{{ define "main" }}
+
+{{ if eq .Title "about title" }}{{ partial "partials/about.html" .}}{{ end }}
+{{ if eq .Title "araththuppaal" }}{{ partial "partials/araththuppaal.html" .}}{{ end }}
+{{ if eq .Title "Porutpaal" }}{{ partial "partials/porutpaal.html" .}}{{ end }}
+{{ if eq .Title "Kaamaththuppaal" }}{{ partial "partials/kaamaththuppaal.html" .}}{{ end }}
+
+{{ end }}
