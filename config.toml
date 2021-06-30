@@ -12,8 +12,8 @@ theme = "tkrl"
 
 	
 	[[menu.navbar_icons]]
-    identifier = "about1"
-    name = "About1"
+    identifier = "about"
+    name = "About"
     pre = "<i class='fas fa-user'></i>"
     url = "/about/"
     weight = 101
